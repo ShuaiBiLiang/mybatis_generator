@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fendo.mapper.HealthyorderMapper">
+  <resultMap id="BaseResultMap" type="com.fendo.bean.Healthyorder">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="USRID" jdbcType="CHAR" property="usrid" />
+    <result column="DOCID" jdbcType="CHAR" property="docid" />
+    <result column="ORDERCODE" jdbcType="VARCHAR" property="ordercode" />
+    <result column="THIRDORDERCODE" jdbcType="VARCHAR" property="thirdordercode" />
+    <result column="PAYMENTMETHOD" jdbcType="VARCHAR" property="paymentmethod" />
+    <result column="CONSULTATIONMETHOD" jdbcType="VARCHAR" property="consultationmethod" />
+    <result column="ORDERAMOUNT" jdbcType="VARCHAR" property="orderamount" />
+    <result column="ORDERSTATE" jdbcType="VARCHAR" property="orderstate" />
+    <result column="CONSULTINGDESCRIPTION" jdbcType="VARCHAR" property="consultingdescription" />
+    <result column="CREATEDATE" jdbcType="TIMESTAMP" property="createdate" />
+    <result column="CREATENAME" jdbcType="VARCHAR" property="createname" />
+    <result column="UPDATENAME" jdbcType="VARCHAR" property="updatename" />
+    <result column="UPDATEDATE" jdbcType="TIMESTAMP" property="updatedate" />
+    <result column="STATE" jdbcType="VARCHAR" property="state" />
+    <result column="RESERVATIONPHOTOID" jdbcType="VARCHAR" property="reservationphotoid" />
+    <result column="RESERVATIONDATE" jdbcType="VARCHAR" property="reservationdate" />
+    <result column="RESERVATIONPERIOD" jdbcType="VARCHAR" property="reservationperiod" />
+    <result column="RESERVATIONTIME" jdbcType="VARCHAR" property="reservationtime" />
+    <result column="USRPHONE" jdbcType="VARCHAR" property="usrphone" />
+    <result column="PATHCODE" jdbcType="VARCHAR" property="pathcode" />
+    <result column="INVOICESTATE" jdbcType="VARCHAR" property="invoicestate" />
+    <result column="USRNAME" jdbcType="VARCHAR" property="usrname" />
+    <result column="USRSEX" jdbcType="VARCHAR" property="usrsex" />
+    <result column="USRBIRTH" jdbcType="VARCHAR" property="usrbirth" />
+    <result column="RESERSTARTTIME" jdbcType="VARCHAR" property="reserstarttime" />
+    <result column="RESERENDTIME" jdbcType="VARCHAR" property="reserendtime" />
+    <result column="SENDFLAG" jdbcType="VARCHAR" property="sendflag" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    ID, USRID, DOCID, ORDERCODE, THIRDORDERCODE, PAYMENTMETHOD, CONSULTATIONMETHOD, ORDERAMOUNT, 
+    ORDERSTATE, CONSULTINGDESCRIPTION, CREATEDATE, CREATENAME, UPDATENAME, UPDATEDATE, 
+    STATE, RESERVATIONPHOTOID, RESERVATIONDATE, RESERVATIONPERIOD, RESERVATIONTIME, USRPHONE, 
+    PATHCODE, INVOICESTATE, USRNAME, USRSEX, USRBIRTH, RESERSTARTTIME, RESERENDTIME, 
+    SENDFLAG
+  </sql>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from HEALTHYORDER
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from HEALTHYORDER
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+
+  <insert id="insert" parameterType="com.fendo.bean.Healthyorder">
+    insert into HEALTHYORDER (ID, USRID, DOCID, ORDERCODE, 
+      THIRDORDERCODE, PAYMENTMETHOD, CONSULTATIONMETHOD, 
+      ORDERAMOUNT, ORDERSTATE, CONSULTINGDESCRIPTION, 
+      CREATEDATE, CREATENAME, UPDATENAME, 
+      UPDATEDATE, STATE, RESERVATIONPHOTOID, 
+      RESERVATIONDATE, RESERVATIONPERIOD, RESERVATIONTIME, 
+      USRPHONE, PATHCODE, INVOICESTATE, 
+      USRNAME, USRSEX, USRBIRTH, 
+      RESERSTARTTIME, RESERENDTIME, SENDFLAG
+      )
+    values (#{id,jdbcType=VARCHAR}, #{usrid,jdbcType=CHAR}, #{docid,jdbcType=CHAR}, #{ordercode,jdbcType=VARCHAR}, 
+      #{thirdordercode,jdbcType=VARCHAR}, #{paymentmethod,jdbcType=VARCHAR}, #{consultationmethod,jdbcType=VARCHAR}, 
+      #{orderamount,jdbcType=VARCHAR}, #{orderstate,jdbcType=VARCHAR}, #{consultingdescription,jdbcType=VARCHAR}, 
+      #{createdate,jdbcType=TIMESTAMP}, #{createname,jdbcType=VARCHAR}, #{updatename,jdbcType=VARCHAR}, 
+      #{updatedate,jdbcType=TIMESTAMP}, #{state,jdbcType=VARCHAR}, #{reservationphotoid,jdbcType=VARCHAR}, 
+      #{reservationdate,jdbcType=VARCHAR}, #{reservationperiod,jdbcType=VARCHAR}, #{reservationtime,jdbcType=VARCHAR}, 
+      #{usrphone,jdbcType=VARCHAR}, #{pathcode,jdbcType=VARCHAR}, #{invoicestate,jdbcType=VARCHAR}, 
+      #{usrname,jdbcType=VARCHAR}, #{usrsex,jdbcType=VARCHAR}, #{usrbirth,jdbcType=VARCHAR}, 
+      #{reserstarttime,jdbcType=VARCHAR}, #{reserendtime,jdbcType=VARCHAR}, #{sendflag,jdbcType=VARCHAR}
+      )
+  </insert>
+
+  <insert id="insertSelective" parameterType="com.fendo.bean.Healthyorder">
+    insert into HEALTHYORDER
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="usrid != null">
+        USRID,
+      </if>
+      <if test="docid != null">
+        DOCID,
+      </if>
+      <if test="ordercode != null">
+        ORDERCODE,
+      </if>
+      <if test="thirdordercode != null">
+        THIRDORDERCODE,
+      </if>
+      <if test="paymentmethod != null">
+        PAYMENTMETHOD,
+      </if>
+      <if test="consultationmethod != null">
+        CONSULTATIONMETHOD,
+      </if>
+      <if test="orderamount != null">
+        ORDERAMOUNT,
+      </if>
+      <if test="orderstate != null">
+        ORDERSTATE,
+      </if>
+      <if test="consultingdescription != null">
+        CONSULTINGDESCRIPTION,
+      </if>
+      <if test="createdate != null">
+        CREATEDATE,
+      </if>
+      <if test="createname != null">
+        CREATENAME,
+      </if>
+      <if test="updatename != null">
+        UPDATENAME,
+      </if>
+      <if test="updatedate != null">
+        UPDATEDATE,
+      </if>
+      <if test="state != null">
+        STATE,
+      </if>
+      <if test="reservationphotoid != null">
+        RESERVATIONPHOTOID,
+      </if>
+      <if test="reservationdate != null">
+        RESERVATIONDATE,
+      </if>
+      <if test="reservationperiod != null">
+        RESERVATIONPERIOD,
+      </if>
+      <if test="reservationtime != null">
+        RESERVATIONTIME,
+      </if>
+      <if test="usrphone != null">
+        USRPHONE,
+      </if>
+      <if test="pathcode != null">
+        PATHCODE,
+      </if>
+      <if test="invoicestate != null">
+        INVOICESTATE,
+      </if>
+      <if test="usrname != null">
+        USRNAME,
+      </if>
+      <if test="usrsex != null">
+        USRSEX,
+      </if>
+      <if test="usrbirth != null">
+        USRBIRTH,
+      </if>
+      <if test="reserstarttime != null">
+        RESERSTARTTIME,
+      </if>
+      <if test="reserendtime != null">
+        RESERENDTIME,
+      </if>
+      <if test="sendflag != null">
+        SENDFLAG,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="usrid != null">
+        #{usrid,jdbcType=CHAR},
+      </if>
+      <if test="docid != null">
+        #{docid,jdbcType=CHAR},
+      </if>
+      <if test="ordercode != null">
+        #{ordercode,jdbcType=VARCHAR},
+      </if>
+      <if test="thirdordercode != null">
+        #{thirdordercode,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentmethod != null">
+        #{paymentmethod,jdbcType=VARCHAR},
+      </if>
+      <if test="consultationmethod != null">
+        #{consultationmethod,jdbcType=VARCHAR},
+      </if>
+      <if test="orderamount != null">
+        #{orderamount,jdbcType=VARCHAR},
+      </if>
+      <if test="orderstate != null">
+        #{orderstate,jdbcType=VARCHAR},
+      </if>
+      <if test="consultingdescription != null">
+        #{consultingdescription,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null">
+        #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createname != null">
+        #{createname,jdbcType=VARCHAR},
+      </if>
+      <if test="updatename != null">
+        #{updatename,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedate != null">
+        #{updatedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="reservationphotoid != null">
+        #{reservationphotoid,jdbcType=VARCHAR},
+      </if>
+      <if test="reservationdate != null">
+        #{reservationdate,jdbcType=VARCHAR},
+      </if>
+      <if test="reservationperiod != null">
+        #{reservationperiod,jdbcType=VARCHAR},
+      </if>
+      <if test="reservationtime != null">
+        #{reservationtime,jdbcType=VARCHAR},
+      </if>
+      <if test="usrphone != null">
+        #{usrphone,jdbcType=VARCHAR},
+      </if>
+      <if test="pathcode != null">
+        #{pathcode,jdbcType=VARCHAR},
+      </if>
+      <if test="invoicestate != null">
+        #{invoicestate,jdbcType=VARCHAR},
+      </if>
+      <if test="usrname != null">
+        #{usrname,jdbcType=VARCHAR},
+      </if>
+      <if test="usrsex != null">
+        #{usrsex,jdbcType=VARCHAR},
+      </if>
+      <if test="usrbirth != null">
+        #{usrbirth,jdbcType=VARCHAR},
+      </if>
+      <if test="reserstarttime != null">
+        #{reserstarttime,jdbcType=VARCHAR},
+      </if>
+      <if test="reserendtime != null">
+        #{reserendtime,jdbcType=VARCHAR},
+      </if>
+      <if test="sendflag != null">
+        #{sendflag,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+
+  <update id="updateByPrimaryKeySelective" parameterType="com.fendo.bean.Healthyorder">
+    update HEALTHYORDER
+    <set>
+      <if test="usrid != null">
+        USRID = #{usrid,jdbcType=CHAR},
+      </if>
+      <if test="docid != null">
+        DOCID = #{docid,jdbcType=CHAR},
+      </if>
+      <if test="ordercode != null">
+        ORDERCODE = #{ordercode,jdbcType=VARCHAR},
+      </if>
+      <if test="thirdordercode != null">
+        THIRDORDERCODE = #{thirdordercode,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentmethod != null">
+        PAYMENTMETHOD = #{paymentmethod,jdbcType=VARCHAR},
+      </if>
+      <if test="consultationmethod != null">
+        CONSULTATIONMETHOD = #{consultationmethod,jdbcType=VARCHAR},
+      </if>
+      <if test="orderamount != null">
+        ORDERAMOUNT = #{orderamount,jdbcType=VARCHAR},
+      </if>
+      <if test="orderstate != null">
+        ORDERSTATE = #{orderstate,jdbcType=VARCHAR},
+      </if>
+      <if test="consultingdescription != null">
+        CONSULTINGDESCRIPTION = #{consultingdescription,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null">
+        CREATEDATE = #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createname != null">
+        CREATENAME = #{createname,jdbcType=VARCHAR},
+      </if>
+      <if test="updatename != null">
+        UPDATENAME = #{updatename,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedate != null">
+        UPDATEDATE = #{updatedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null">
+        STATE = #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="reservationphotoid != null">
+        RESERVATIONPHOTOID = #{reservationphotoid,jdbcType=VARCHAR},
+      </if>
+      <if test="reservationdate != null">
+        RESERVATIONDATE = #{reservationdate,jdbcType=VARCHAR},
+      </if>
+      <if test="reservationperiod != null">
+        RESERVATIONPERIOD = #{reservationperiod,jdbcType=VARCHAR},
+      </if>
+      <if test="reservationtime != null">
+        RESERVATIONTIME = #{reservationtime,jdbcType=VARCHAR},
+      </if>
+      <if test="usrphone != null">
+        USRPHONE = #{usrphone,jdbcType=VARCHAR},
+      </if>
+      <if test="pathcode != null">
+        PATHCODE = #{pathcode,jdbcType=VARCHAR},
+      </if>
+      <if test="invoicestate != null">
+        INVOICESTATE = #{invoicestate,jdbcType=VARCHAR},
+      </if>
+      <if test="usrname != null">
+        USRNAME = #{usrname,jdbcType=VARCHAR},
+      </if>
+      <if test="usrsex != null">
+        USRSEX = #{usrsex,jdbcType=VARCHAR},
+      </if>
+      <if test="usrbirth != null">
+        USRBIRTH = #{usrbirth,jdbcType=VARCHAR},
+      </if>
+      <if test="reserstarttime != null">
+        RESERSTARTTIME = #{reserstarttime,jdbcType=VARCHAR},
+      </if>
+      <if test="reserendtime != null">
+        RESERENDTIME = #{reserendtime,jdbcType=VARCHAR},
+      </if>
+      <if test="sendflag != null">
+        SENDFLAG = #{sendflag,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+
+  <update id="updateByPrimaryKey" parameterType="com.fendo.bean.Healthyorder">
+    update HEALTHYORDER
+    set USRID = #{usrid,jdbcType=CHAR},
+      DOCID = #{docid,jdbcType=CHAR},
+      ORDERCODE = #{ordercode,jdbcType=VARCHAR},
+      THIRDORDERCODE = #{thirdordercode,jdbcType=VARCHAR},
+      PAYMENTMETHOD = #{paymentmethod,jdbcType=VARCHAR},
+      CONSULTATIONMETHOD = #{consultationmethod,jdbcType=VARCHAR},
+      ORDERAMOUNT = #{orderamount,jdbcType=VARCHAR},
+      ORDERSTATE = #{orderstate,jdbcType=VARCHAR},
+      CONSULTINGDESCRIPTION = #{consultingdescription,jdbcType=VARCHAR},
+      CREATEDATE = #{createdate,jdbcType=TIMESTAMP},
+      CREATENAME = #{createname,jdbcType=VARCHAR},
+      UPDATENAME = #{updatename,jdbcType=VARCHAR},
+      UPDATEDATE = #{updatedate,jdbcType=TIMESTAMP},
+      STATE = #{state,jdbcType=VARCHAR},
+      RESERVATIONPHOTOID = #{reservationphotoid,jdbcType=VARCHAR},
+      RESERVATIONDATE = #{reservationdate,jdbcType=VARCHAR},
+      RESERVATIONPERIOD = #{reservationperiod,jdbcType=VARCHAR},
+      RESERVATIONTIME = #{reservationtime,jdbcType=VARCHAR},
+      USRPHONE = #{usrphone,jdbcType=VARCHAR},
+      PATHCODE = #{pathcode,jdbcType=VARCHAR},
+      INVOICESTATE = #{invoicestate,jdbcType=VARCHAR},
+      USRNAME = #{usrname,jdbcType=VARCHAR},
+      USRSEX = #{usrsex,jdbcType=VARCHAR},
+      USRBIRTH = #{usrbirth,jdbcType=VARCHAR},
+      RESERSTARTTIME = #{reserstarttime,jdbcType=VARCHAR},
+      RESERENDTIME = #{reserendtime,jdbcType=VARCHAR},
+      SENDFLAG = #{sendflag,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+
+  <select id="selectAll" parameterType="com.fendo.bean.Healthyorder" resultMap="BaseResultMap">
+    select * from HEALTHYORDER
+  </select>
+
+  <select id="queryPage" parameterType="com.fendo.bean.Page" resultMap="BaseResultMap">
+    select * from HEALTHYORDER
+  </select>
+
+</mapper>
