@@ -1,0 +1,30 @@
+package ${package_name};
+
+
+import com.his.sdk.util.ParamCheckUtil;
+import com.his.session.pojo.accept.SessionAccept;
+import lombok.Getter;
+import lombok.Setter;
+
+
+@Getter
+@Setter
+public class ${model}UpdateStateAccept extends SessionAccept {
+
+    // id>0
+    long id;
+
+    // 状态
+    short state;
+
+    @Override
+    public boolean check() {
+        if (!super.checkClientIP()) {
+            return false;
+        }
+        if(id<=0 || !ParamCheckUtil.checkObjectIn((int)state,1,2)){
+            return false;
+        }
+        return true;
+    }
+}

@@ -117,7 +117,7 @@ public class MapperPlugin extends PluginAdapter{
             sb.append(" = "); //$NON-NLS-1$
             sb.append(MyBatis3FormattingUtilities
                     .getParameterClause(introspectedColumn));
-            sb.append(',');
+//            sb.append(',');
 
             isNotNullElement.addElement(new TextElement(sb.toString()));
         }
@@ -153,6 +153,7 @@ public class MapperPlugin extends PluginAdapter{
                     FullyQualifiedJavaType daoSuperType = new FullyQualifiedJavaType(expandDaoSuperClass);
                     mapperInterface.addImportedType(daoSuperType);
                     mapperInterface.addSuperInterface(daoSuperType);
+
 
                     mapperJavafile = new GeneratedJavaFile(mapperInterface, daoTargetDir, javaFormatter);
                     try {

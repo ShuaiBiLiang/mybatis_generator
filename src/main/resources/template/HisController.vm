@@ -1,0 +1,128 @@
+package ${package_name};
+
+import com.his.clinic.pojo.param.${model}AddAccept;
+import com.his.clinic.pojo.param.${model}SelectAccept;
+import com.his.clinic.pojo.param.${model}UpdateAccept;
+import com.his.clinic.pojo.param.${model}UpdateStateAccept;
+import com.his.clinic.pojo.vo.${model}Vo;
+import com.his.clinic.service.${model}Service;
+import com.his.sdk.pojo.Return;
+import com.his.sdk.pojo.TFPageInfo;
+import com.his.session.account.SessionAccountParse;
+import com.his.session.constant.CommonDefine;
+import com.his.session.constant.SessionConstant;
+import com.his.session.constant.SessionEnumError;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+
+/**
+* @author lil
+* @date ${ctime}
+*/
+@RestController
+@RequestMapping(value = "/${lowerModel}")
+public class ${model}Controller {
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+    
+    @Resource
+    private SessionAccountParse accountParse;
+    
+    @Resource
+    private ${model}Service ${lowerModel}Service;
+    
+    /**
+    * 列表
+    */
+    @RequestMapping(value = "/list", produces = {CommonDefine.REQUEST_PRODUCES}, method={RequestMethod.POST})
+    public String selectList(HttpServletRequest request) {
+        try {
+            Return<${model}SelectAccept> retParam = accountParse.parseClinic(request, ${model}SelectAccept.class);
+            if (Return.isErr(retParam)) {
+                return SessionConstant.pack(retParam.getCode(), retParam.getDesc());
+            }
+            ${model}SelectAccept accept = retParam.getData();
+        
+            Return<Object> ret = ${lowerModel}Service.selectList(accept);
+            if (Return.isErr(ret)) {
+                return SessionConstant.pack(ret.getCode(), ret.getDesc());
+            }
+        
+            return SessionConstant.pack(ret.getData());
+        } catch (Exception e) {
+            logger.error(request.getServletPath(),e);
+            return SessionConstant.pack(SessionEnumError.EXCEPTION_ERROR);
+        }
+    }
+
+    /**
+    * 添加
+    */
+    @RequestMapping(value = "/add", produces = {CommonDefine.REQUEST_PRODUCES}, method={RequestMethod.POST})
+    public String add(HttpServletRequest request) {
+        try {
+            Return<${model}AddAccept> retParam = accountParse.parseClinic(request, ${model}AddAccept.class);
+            if (Return.isErr(retParam)) {
+            return SessionConstant.pack(retParam.getCode(), retParam.getDesc());
+            }
+            ${model}AddAccept accept = retParam.getData();
+            Return<Object> ret = ${lowerModel}Service.add(accept);
+            if (Return.isErr(ret)) {
+            return SessionConstant.pack(ret.getCode(), ret.getDesc());
+            }
+            return SessionConstant.pack(ret.getData());
+        } catch (Exception e) {
+            logger.error(request.getServletPath(),e);
+            return SessionConstant.pack(SessionEnumError.EXCEPTION_ERROR);
+        }
+    }
+
+    /**
+    * 修改
+    */
+    @RequestMapping(value = "/update", produces = {CommonDefine.REQUEST_PRODUCES}, method={RequestMethod.POST})
+    public String edit(HttpServletRequest request) {
+        try {
+        Return<${model}UpdateAccept> retParam = accountParse.parseClinic(request, ${model}UpdateAccept.class);
+            if (Return.isErr(retParam)) {
+                return SessionConstant.pack(retParam.getCode(), retParam.getDesc());
+            }
+            ${model}UpdateAccept accept = retParam.getData();
+            Return<Object> ret = ${lowerModel}Service.edit(accept);
+            if (Return.isErr(ret)) {
+                return SessionConstant.pack(ret.getCode(), ret.getDesc());
+            }
+            return SessionConstant.pack(ret.getData());
+        } catch (Exception e) {
+            logger.error(request.getServletPath(),e);
+            return SessionConstant.pack(SessionEnumError.EXCEPTION_ERROR);
+        }
+    }
+
+    /**
+    * 修改状态
+    */
+    @RequestMapping(value = "/updateState", produces = {CommonDefine.REQUEST_PRODUCES}, method={RequestMethod.POST})
+    public String setState(HttpServletRequest request) {
+        try {
+        Return<${model}UpdateStateAccept> retParam = accountParse.parseClinic(request, ${model}UpdateStateAccept.class);
+            if (Return.isErr(retParam)) {
+                return SessionConstant.pack(retParam.getCode(), retParam.getDesc());
+            }
+            ${model}UpdateStateAccept accept = retParam.getData();
+            Return<Object> ret = ${lowerModel}Service.setState(accept);
+            if (Return.isErr(ret)) {
+                return SessionConstant.pack(ret.getCode(), ret.getDesc());
+            }
+            return SessionConstant.pack(ret.getData());
+        } catch (Exception e) {
+            logger.error(request.getServletPath(),e);
+            return SessionConstant.pack(SessionEnumError.EXCEPTION_ERROR);
+        }
+    }
+}

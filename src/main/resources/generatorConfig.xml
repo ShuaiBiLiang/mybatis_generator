@@ -18,8 +18,19 @@
             <property name="targetProject" value="D:/liliang/HisWorkspace2/HisCloud/His/his/clinic/src/main/java"/>
             <property name="targetPackage" value="com.his.clinic.repository.mapper"/>
             <property name="daoSuperClass" value="com.his.clinic.repository.mapper.BaseMapper"/>
-        </plugin>  
-		<commentGenerator>
+        </plugin>
+
+        <!-- 自定义方法 dao,service,controller-->
+        <plugin type="org.mybatis.generator.plugins.DaoServiceControllerPlugin">
+            <property name="targetProject" value="D:/liliang/HisWorkspace2/HisCloud/His/his/clinic/src/main/java"/>
+            <property name="daoTargetPackage" value="com.his.clinic.repository.dao"/>
+            <property name="serviceTargetPackage" value="com.his.clinic.service"/>
+            <property name="controllerTargetPackage" value="com.his.clinic.controller"/>
+            <property name="acceptTargetPackage" value="com.his.clinic.pojo.param"/>
+            <property name="voTargetPackage" value="com.his.clinic.pojo.vo"/>
+        </plugin>
+
+        <commentGenerator>
 		    <!-- 设置编码为UTF-8 -->
 		    <property name="javaFileEncoding" value="UTF-8"/>
 		    <!--配置生成注释，默认注释已经修改 -->
@@ -42,7 +53,7 @@
             <property name="enableSubPackages" value="true"/>  
         </sqlMapGenerator>  
         <!-- 生成DAO的包名和位置-->  
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.his.clinic.repository.mapper" targetProject="D:/liliang/HisWorkspace2/HisCloud/His/his/clinic">
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.his.clinic.repository.mapper" targetProject="D:/liliang/HisWorkspace2/HisCloud/His/his/clinic/src/main/java">
             <property name="enableSubPackages" value="true"/>
             <property name="rootInterface" value="com.his.clinic.repository.mapper.BaseMapper"/>
         </javaClientGenerator>
@@ -50,7 +61,25 @@
         <!--<table tableName="Healthyorder" domainObjectName="Healthyorder" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
         <!--<table tableName="his_dept" domainObjectName="HisDept" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
         <!--<table tableName="his_recipe_case_template" domainObjectName="RecipeCaseTemplate" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
-        <table tableName="his_clinic_config" domainObjectName="ClinicConfig" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+        <!--<table tableName="t_register" domainObjectName="Register" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+        <!--<table tableName="t_receipt" domainObjectName="Receipt" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+        <!--<table tableName="t_patient" domainObjectName="Patient" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+        <!--<table tableName="t_clinic_order" domainObjectName="ClinicOrder" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+        <!--<table tableName="t_user_clinic_info" domainObjectName="UserClinicInfo" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+        <!--<table tableName="t_stock_drug_instock_detail" domainObjectName="DrugInStockDetail" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+        <!--<table tableName="t_stock_drug_stock" domainObjectName="DrugStock" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+        <!--<table tableName="t_stock_drug_instock" domainObjectName="DrugInStock" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+        <!--<table tableName="t_stock_drug_outstock" domainObjectName="DrugOutStock" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+        <!--<table tableName="t_stock_drug_outstock_detail" domainObjectName="DrugOutStockDetail" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+        <!--<table tableName="t_stock_drug_change_detail" domainObjectName="DrugChangeDetail" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+        <!--<table tableName="t_stock_drug_adjust" domainObjectName="DrugAdjust" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+        <!--<table tableName="t_stock_drug_adjust_detail" domainObjectName="DrugAdjustDetail" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+        <table tableName="t_stock_drug_inventory" domainObjectName="DeInventory" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+        <!--<table tableName="t_stock_drug_inventory_detail" domainObjectName="DrugInventoryDetail" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+
+
+
+        <!--<table tableName="t_register_fee" domainObjectName="RegisterFee" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
 
     </context>  
 </generatorConfiguration>

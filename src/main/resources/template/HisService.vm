@@ -1,0 +1,141 @@
+package ${package_name};
+
+import com.github.pagehelper.PageHelper;
+import com.his.clinic.constant.Constant;
+import com.his.clinic.constant.EnumError;
+import com.his.clinic.constant.SystemDefine;
+import com.his.clinic.mq.MqSendLog;
+import com.his.clinic.pojo.param.${model}SelectAccept;
+import com.his.clinic.pojo.param.${model}AddAccept;
+import com.his.clinic.pojo.param.${model}UpdateAccept;
+import com.his.clinic.pojo.param.${model}UpdateStateAccept;
+import com.his.clinic.repository.dao.${model}Dao;
+import com.his.clinic.repository.model.${model};
+import com.his.clinic.pojo.vo.${model}Vo;
+import com.his.sdk.change.StaticChange;
+import com.his.sdk.pojo.Return;
+import com.his.sdk.pojo.TFPageInfo;
+import com.his.session.constant.SessionConstant;
+import com.his.session.constant.SessionEnumError;
+import com.his.session.exception.BusinessException;
+import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+/**
+* @author lil
+* @date ${ctime}
+*/
+@Service
+public class ${model}Service {
+    
+    @Resource
+    private ${model}Dao ${lowerModel}Dao;
+    
+    
+    /**
+    * 分页查询
+    *
+    * @param accept
+    * @return
+    */
+    public Return<Object> selectList(${model}SelectAccept accept) {
+        int page = accept.getPage();
+        int size = accept.getSize();
+        long clinicId = accept.getClinic().getClinicId();
+        PageHelper.startPage(page, size);
+        Map<String, Object> params = new HashMap<>();
+        params.put(SystemDefine.MAP_PARAM_CLINIC_ID, clinicId);
+        params.put(SystemDefine.MAP_PARAM_CONDITION, accept.getCondition());
+        List<${model}> ${lowerModel}s = ${lowerModel}Dao.selectListByCondition(params);
+        TFPageInfo<${model}Vo> pageInfo = StaticChange.changePage(${lowerModel}s,${model}Vo.class);
+        if (pageInfo == null) {
+            return SessionConstant.ret(SessionEnumError.CHANGE_ERROR);
+        }
+        return SessionConstant.ret(pageInfo);
+    }
+    
+    /**
+    * 新增
+    *
+    * @param accept
+    * @return
+    */
+    public Return<Object> add(${model}AddAccept accept) {
+        long clinicId = accept.getClinic().getClinicId();
+        long userId = accept.getUser().getUserId();
+        long currentTime = System.currentTimeMillis();
+        ${model} record = new ${model}();
+        // 新增
+        int ret = ${lowerModel}Dao.insert(record);
+        if (ret < 1) {
+        return SessionConstant.ret(SessionEnumError.SAVE_ERROR);
+        }
+    
+        MqSendLog.log(accept.getSession(), record);
+        return SessionConstant.ret(record);
+    }
+    
+    
+    /**
+    * 修改
+    *
+    * @param accept
+    * @return
+    */
+    public Return<Object> edit(${model}UpdateAccept accept) {
+        String returnMsg = "";
+        long clinicId = accept.getClinic().getClinicId();
+        long userId = accept.getUser().getUserId();
+        long id = accept.getId();
+        ${model} record = ${lowerModel}Dao.selectByPrimaryKey(id);
+        if (record == null) {
+        return SessionConstant.ret(SessionEnumError.NOT_EXIST_ERROR);
+        }
+        if (!(record.getClinicId() + "").equals(clinicId + "")) {
+        return Constant.ret(EnumError.RECORD_NOT_IN_CLINIC_ERROR);
+        }
+        if (record.getState() != 1) {
+        return SessionConstant.ret(SessionEnumError.LOGIC_ERROR);
+        }
+        // 更新记录
+        int ret2 = ${lowerModel}Dao.updateByPrimaryKeySelective(record);
+        if (ret2 < 1) {
+        throw new BusinessException(SessionEnumError.UPDATE_ERROR);
+        }
+        MqSendLog.logUpdate(accept.getSession(), record, accept);
+        return SessionConstant.ret(returnMsg);
+    }
+    
+    /**
+    * 修改状态
+    *
+    * @param accept
+    * @return
+    */
+    public Return<Object> setState(${model}UpdateStateAccept accept) {
+        String returnMsg = "";
+        long id = accept.getId();
+        long userId = accept.getUser().getUserId();
+        long ctime = System.currentTimeMillis();
+        long clinicId = accept.getClinic().getClinicId();
+        int state = accept.getState();
+        ${model} record = ${lowerModel}Dao.selectByPrimaryKey(id);
+        if (record == null) {
+        return SessionConstant.ret(SessionEnumError.NOT_EXIST_ERROR);
+        }
+        if (!(record.getClinicId() + "").equals(clinicId + "")) {
+        return Constant.ret(EnumError.RECORD_NOT_IN_CLINIC_ERROR);
+        }
+        int ret = ${lowerModel}Dao.updateByPrimaryKey(record);
+        if (ret < 1) {
+        return SessionConstant.ret(SessionEnumError.UPDATE_ERROR);
+        }
+        MqSendLog.logUpdateState(accept.getSession(), record, String.valueOf(state));
+        return SessionConstant.ret(returnMsg);
+    }
+}
+

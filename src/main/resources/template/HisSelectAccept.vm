@@ -1,0 +1,22 @@
+package ${package_name};
+
+import com.his.session.pojo.accept.PageSessionAccept;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+public class ${model}SelectAccept extends PageSessionAccept {
+
+    private String condition;// 调价单号
+    private Short state;//状态
+
+    @Override
+    public boolean check() {
+        if (!super.checkClientIP()) {
+            return false;
+        }
+        return true;
+    }
+
+}

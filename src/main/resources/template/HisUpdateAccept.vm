@@ -1,0 +1,27 @@
+package ${package_name};
+
+import com.his.session.pojo.accept.SessionAccept;
+import lombok.Getter;
+import lombok.Setter;
+
+
+@Getter
+@Setter
+public class ${model}UpdateAccept extends SessionAccept {
+
+    private Long id;
+
+
+    @Override
+    public boolean check() {
+        if (!super.check()) {
+            return false;
+        }
+        if(id<0){
+            return false;
+        }
+        return true;
+    }
+
+}
+
