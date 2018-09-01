@@ -21,14 +21,14 @@
         </plugin>
 
         <!-- 自定义方法 dao,service,controller-->
-        <plugin type="org.mybatis.generator.plugins.DaoServiceControllerPlugin">
-            <property name="targetProject" value="D:/liliang/HisWorkspace2/HisCloud/His/his/clinic/src/main/java"/>
-            <property name="daoTargetPackage" value="com.his.clinic.repository.dao"/>
-            <property name="serviceTargetPackage" value="com.his.clinic.service"/>
-            <property name="controllerTargetPackage" value="com.his.clinic.controller"/>
-            <property name="acceptTargetPackage" value="com.his.clinic.pojo.param"/>
-            <property name="voTargetPackage" value="com.his.clinic.pojo.vo"/>
-        </plugin>
+        <!--<plugin type="org.mybatis.generator.plugins.DaoServiceControllerPlugin">-->
+            <!--<property name="targetProject" value="D:/liliang/HisWorkspace2/HisCloud/His/his/clinic/src/main/java"/>-->
+            <!--<property name="daoTargetPackage" value="com.his.clinic.repository.dao"/>-->
+            <!--<property name="serviceTargetPackage" value="com.his.clinic.service"/>-->
+            <!--<property name="controllerTargetPackage" value="com.his.clinic.controller"/>-->
+            <!--<property name="acceptTargetPackage" value="com.his.clinic.pojo.param"/>-->
+            <!--<property name="voTargetPackage" value="com.his.clinic.pojo.vo"/>-->
+        <!--</plugin>-->
 
         <commentGenerator>
 		    <!-- 设置编码为UTF-8 -->
@@ -75,14 +75,15 @@
         <!--<table tableName="t_stock_drug_adjust" domainObjectName="DrugAdjust" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
         <!--<table tableName="t_stock_drug_adjust_detail" domainObjectName="DrugAdjustDetail" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
         <!--<table tableName="t_stock_drug_inventory" domainObjectName="DrugInventory" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
-        <!--<table tableName="t_stock_drug_inventory_detail" domainObjectName="DrugInventoryDetail" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+        <table tableName="t_stock_drug_inventory_detail" domainObjectName="DrugInventoryDetail" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
 
 
 
-        <table tableName="t_recipe" domainObjectName="Recipe" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
-        <table tableName="t_recipe_detail" domainObjectName="RecipeDetail" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
-        <table tableName="t_recipe_form_count" domainObjectName="RecipeFormCount" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
-        <table tableName="t_recipe_medical_template" domainObjectName="RecipeMedicalTemplate" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+        <!--<table tableName="t_recipe_case" domainObjectName="RecipeCase" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+        <!--<table tableName="t_recipe" domainObjectName="Recipe" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+        <!--<table tableName="t_recipe_detail" domainObjectName="RecipeDetail" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+        <!--<table tableName="t_recipe_form_count" domainObjectName="RecipeFormCount" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+        <!--<table tableName="t_recipe_medical_template" domainObjectName="RecipeMedicalTemplate" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
 
     </context>  
 </generatorConfiguration>
