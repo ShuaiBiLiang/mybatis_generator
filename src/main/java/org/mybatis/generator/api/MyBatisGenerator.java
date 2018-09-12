@@ -35,10 +35,7 @@ import org.mybatis.generator.config.Context;
 import org.mybatis.generator.config.MergeConstants;
 import org.mybatis.generator.exception.InvalidConfigurationException;
 import org.mybatis.generator.exception.ShellException;
-import org.mybatis.generator.internal.DefaultShellCallback;
-import org.mybatis.generator.internal.ObjectFactory;
-import org.mybatis.generator.internal.NullProgressCallback;
-import org.mybatis.generator.internal.XmlFileMergerJaxp;
+import org.mybatis.generator.internal.*;
 
 /**
  * This class is the main interface to MyBatis generator. A typical execution of the tool involves these steps:
@@ -301,6 +298,21 @@ public class MyBatisGenerator {
             File directory = shellCallback.getDirectory(gjf
                     .getTargetProject(), gjf.getTargetPackage());
             targetFile = new File(directory, gjf.getFileName());
+
+            boolean writeJavaFile = true;
+            PluginAggregator pluginAggregator = (PluginAggregator) configuration.getContexts().get(0).getPlugins();
+            for(Plugin item: pluginAggregator.getPlugins()){
+                if("org.mybatis.generator.plugins.MapperPlugin".equals(item.getClass().getName())){
+                    if(((PluginAdapter)item).getProperties().get("createJavaMapper")!=null && gjf.getFileName().endsWith("Mapper.java")){
+                        writeJavaFile = false;
+                        break;
+                    }
+                }
+            }
+            if(!writeJavaFile){
+                return;
+            }
+
             if (targetFile.exists()) {
                 if (shellCallback.isMergeSupported()) {
                     source = shellCallback.mergeJavaFile(gjf

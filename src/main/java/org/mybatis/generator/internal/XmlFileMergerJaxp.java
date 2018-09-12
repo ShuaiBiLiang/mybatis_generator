@@ -197,6 +197,13 @@ public class XmlFileMergerJaxp {
                         break;
                     }
                 }
+                // 如果旧的xml存在，那么删掉旧的xml中重复元素
+                for (String prefix : MergeConstants.OLD_XML_ELEMENT_IDS) {
+                    if (id.startsWith(prefix)) {
+                        rc = true;
+                        break;
+                    }
+                }
             }
 
             if (rc == false) {

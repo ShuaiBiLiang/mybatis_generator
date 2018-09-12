@@ -33,6 +33,9 @@ public class DefaultShellCallback implements ShellCallback {
     /** The overwrite. */
     private boolean overwrite;
 
+    /** The mergeSupported. */
+    private boolean mergeSupported;
+
     /**
      * Instantiates a new default shell callback.
      *
@@ -42,6 +45,11 @@ public class DefaultShellCallback implements ShellCallback {
     public DefaultShellCallback(boolean overwrite) {
         super();
         this.overwrite = overwrite;
+        this.mergeSupported = false;
+    }
+
+    public void setMergeSupported(boolean mergeSupported) {
+        this.mergeSupported = mergeSupported;
     }
 
     /* (non-Javadoc)
@@ -92,7 +100,7 @@ public class DefaultShellCallback implements ShellCallback {
      * @see org.mybatis.generator.api.ShellCallback#isMergeSupported()
      */
     public boolean isMergeSupported() {
-        return false;
+        return mergeSupported;
     }
 
     /* (non-Javadoc)

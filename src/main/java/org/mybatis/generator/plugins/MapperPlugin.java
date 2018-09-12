@@ -130,6 +130,7 @@ public class MapperPlugin extends PluginAdapter{
         return super.sqlMapDocumentGenerated(document, introspectedTable);
     }
 
+    @Override
     public List<GeneratedJavaFile> contextGenerateAdditionalJavaFiles(IntrospectedTable introspectedTable) {
         JavaFormatter javaFormatter = context.getJavaFormatter();
         List<GeneratedJavaFile> mapperJavaFiles = new ArrayList<GeneratedJavaFile>();
@@ -187,6 +188,8 @@ public class MapperPlugin extends PluginAdapter{
 
                     mapperJavafile = new GeneratedJavaFile(mapperInterface, daoTargetDir, javaFormatter);
                     mapperJavaFiles.add(mapperJavafile);
+                }else {
+                    return null;
                 }
 
             }

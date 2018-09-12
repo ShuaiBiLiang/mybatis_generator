@@ -45,7 +45,11 @@ import org.mybatis.generator.config.Context;
  * 
  */
 public final class PluginAggregator implements Plugin {
-    private List<Plugin> plugins;
+    public List<Plugin> plugins;
+
+    public List<Plugin> getPlugins() {
+        return plugins;
+    }
 
     public PluginAggregator() {
         plugins = new ArrayList<Plugin>();

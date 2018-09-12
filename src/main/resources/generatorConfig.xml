@@ -3,7 +3,9 @@
         PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 <generatorConfiguration> 
-	<!-- 引入配置文件 --> 
+	<!-- 引入配置文件 -->
+    <properties resource="mybatisGeneratorinit.properties"/>
+    
 	<!-- 指定数据连接驱动jar地址 -->
     <classPathEntry  location="d:\liliang\repository\mysql\mysql-connector-java\5.1.45\mysql-connector-java-5.1.45.jar"/>
     <context id="DB2Tables"  targetRuntime="MyBatis3">
@@ -15,14 +17,15 @@
         
         <!-- 自定义方法 -->
         <plugin type="org.mybatis.generator.plugins.MapperPlugin">
-            <property name="targetProject" value="D:/liliang/HisWorkspace2/HisCloud/His/his/clinic/src/main/java"/>
+            <property name="targetProject" value="${project_path}/src/main/java"/>
             <property name="targetPackage" value="com.his.clinic.repository.mapper"/>
             <property name="daoSuperClass" value="com.his.clinic.repository.mapper.BaseMapper"/>
+            <property name="createJavaMapper" value="false"/>
         </plugin>
 
         <!-- 自定义方法 dao,service,controller-->
         <!--<plugin type="org.mybatis.generator.plugins.DaoServiceControllerPlugin">-->
-            <!--<property name="targetProject" value="D:/liliang/HisWorkspace2/HisCloud/His/his/clinic/src/main/java"/>-->
+            <!--<property name="targetProject" value="${project_path}/src/main/java"/>-->
             <!--<property name="daoTargetPackage" value="com.his.clinic.repository.dao"/>-->
             <!--<property name="serviceTargetPackage" value="com.his.clinic.service"/>-->
             <!--<property name="controllerTargetPackage" value="com.his.clinic.controller"/>-->
@@ -39,21 +42,21 @@
         <!--数据库链接URL，用户名、密码 -->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://192.168.10.14/his_clinic" userId="retow" password="Retow0594@">
         </jdbcConnection>
-        <javaTypeResolver>  
-            <property name="forceBigDecimals" value="false"/>  
-        </javaTypeResolver>  
-        <!-- 生成模型的包名和位置-->  
-        <javaModelGenerator targetPackage="com.his.clinic.repository.model" targetProject="D:/liliang/HisWorkspace2/HisCloud/His/his/clinic/src/main/java">
-            <property name="enableSubPackages" value="true"/>  
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+        <!-- 生成模型的包名和位置-->
+        <javaModelGenerator targetPackage="com.his.clinic.repository.model" targetProject="${project_path}/src/main/java">
+            <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
             <!--<property name="rootClass" value="com.fendo.bean.BaseModel"/>-->
-        </javaModelGenerator>  
-        <!-- 生成映射文件的包名和位置-->  
-        <sqlMapGenerator targetPackage="mapper" targetProject="D:/liliang/HisWorkspace2/HisCloud/His/his/clinic/src/main/resources">
-            <property name="enableSubPackages" value="true"/>  
-        </sqlMapGenerator>  
-        <!-- 生成DAO的包名和位置-->  
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.his.clinic.repository.mapper" targetProject="D:/liliang/HisWorkspace2/HisCloud/His/his/clinic/src/main/java">
+        </javaModelGenerator>
+        <!-- 生成映射文件的包名和位置-->
+        <sqlMapGenerator targetPackage="mapper" targetProject="${project_path}/src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+        <!-- 生成DAO的包名和位置-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.his.clinic.repository.mapper" targetProject="${project_path}/src/main/java">
             <property name="enableSubPackages" value="true"/>
             <property name="rootInterface" value="com.his.clinic.repository.mapper.BaseMapper"/>
         </javaClientGenerator>
@@ -75,12 +78,12 @@
         <!--<table tableName="t_stock_drug_adjust" domainObjectName="DrugAdjust" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
         <!--<table tableName="t_stock_drug_adjust_detail" domainObjectName="DrugAdjustDetail" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
         <!--<table tableName="t_stock_drug_inventory" domainObjectName="DrugInventory" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
-        <table tableName="t_stock_drug_inventory_detail" domainObjectName="DrugInventoryDetail" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+        <!--<table tableName="t_stock_drug_inventory_detail" domainObjectName="DrugInventoryDetail" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
 
 
 
         <!--<table tableName="t_recipe_case" domainObjectName="RecipeCase" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
-        <!--<table tableName="t_recipe" domainObjectName="Recipe" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+        <table tableName="t_recipe" domainObjectName="Recipe" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
         <!--<table tableName="t_recipe_detail" domainObjectName="RecipeDetail" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
         <!--<table tableName="t_recipe_form_count" domainObjectName="RecipeFormCount" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
         <!--<table tableName="t_recipe_medical_template" domainObjectName="RecipeMedicalTemplate" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
