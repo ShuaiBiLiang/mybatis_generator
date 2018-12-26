@@ -10,10 +10,10 @@
     <classPathEntry  location="d:\liliang\repository\mysql\mysql-connector-java\5.1.45\mysql-connector-java-5.1.45.jar"/>
     <context id="DB2Tables"  targetRuntime="MyBatis3">
 	    <!-- 自动生成tostring方法 -->
-	    <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
+	    <!--<plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>-->
         <!-- 自动生成equals方法和hashcode方法 -->
-        <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"/>
-        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+        <!--<plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"/>-->
+        <!--<plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>-->
         
         <!-- 自定义方法 -->
         <plugin type="org.mybatis.generator.plugins.MapperPlugin">
@@ -83,12 +83,13 @@
 
 
         <!--<table tableName="t_recipe_case" domainObjectName="RecipeCase" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
-        <!--<table tableName="t_recipe" domainObjectName="Recipe" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
-        <!--<table tableName="t_recipe_detail" domainObjectName="RecipeDetail" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+        <!--<table tableName="t_recipe_order" domainObjectName="RecipeOrder" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+        <!--<table tableName="t_recipe_order_detail" domainObjectName="RecipeOrderDetail" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
         <!--<table tableName="t_recipe_order_detail" domainObjectName="RecipeOrderDetail" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
         <!--<table tableName="t_recipe_form_count" domainObjectName="RecipeFormCount" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
         <!--<table tableName="t_recipe_medical_template" domainObjectName="RecipeMedicalTemplate" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
-        <table tableName="t_order_pay_audit" domainObjectName="OrderPayAudit" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"><generatedKey column="ID" sqlStatement="MySql" identity="true"/></table>
+        <!--<table tableName="t_order_pay_audit" domainObjectName="OrderPayAudit" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"><generatedKey column="ID" sqlStatement="MySql" identity="true"/></table>-->
+        <table tableName="t_common_words" domainObjectName="CommonWords" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"><generatedKey column="ID" sqlStatement="MySql" identity="true"/></table>
 
     </context>  
 </generatorConfiguration>

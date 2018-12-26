@@ -237,7 +237,9 @@ public class DefaultCommentGenerator implements CommentGenerator {
         	remarks = introspectedColumn.getRemarks();
         }
         
-        field.addJavaDocLine("// "+remarks);
+        field.addJavaDocLine("/**");
+        field.addJavaDocLine("*"+remarks);
+        field.addJavaDocLine("*/");
     }
 
     /* (non-Javadoc)
