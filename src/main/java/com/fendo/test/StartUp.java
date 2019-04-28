@@ -15,13 +15,13 @@ import org.mybatis.generator.exception.InvalidConfigurationException;
 import org.mybatis.generator.exception.XMLParserException;
 import org.mybatis.generator.internal.DefaultShellCallback;
 
-/**   
- * @Title: StartUp.java 
- * @Package com.fendo.mybatis_generator_plus 
+/**
+ * @Title: StartUp.java
+ * @Package com.fendo.mybatis_generator_plus
  * @Description: mybatis-generator测试类
  * @author fendo
- * @date 2017年10月5日 下午3:53:17 
- * @version V1.0   
+ * @date 2017年10月5日 下午3:53:17
+ * @version V1.0
 */
 public class StartUp {
 
@@ -32,6 +32,7 @@ public class StartUp {
             boolean overwrite = true;
             ClassLoader classloader = Thread.currentThread().getContextClassLoader();
             InputStream is = classloader.getResourceAsStream("generatorConfig.xml");
+//            InputStream is = classloader.getResourceAsStream("generatorConfig_log.xml");
             ConfigurationParser cp = new ConfigurationParser(warnings);
             Configuration config = cp.parseConfiguration(is);
             DefaultShellCallback callback = new DefaultShellCallback(overwrite);

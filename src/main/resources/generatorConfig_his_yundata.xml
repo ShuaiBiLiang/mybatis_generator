@@ -20,7 +20,7 @@
             <property name="targetProject" value="${project_path}/src/main/java"/>
             <property name="targetPackage" value="com.his.yundata.repository.mapper"/>
             <property name="daoSuperClass" value="com.his.yundata.repository.mapper.BaseMapper"/>
-            <!--<property name="createJavaMapper" value="false"/>-->
+            <property name="createJavaMapper" value="false"/>
         </plugin>
 
         <!-- 自定义方法 dao,service,controller-->
@@ -60,7 +60,7 @@
             <property name="enableSubPackages" value="true"/>
             <property name="rootInterface" value="com.his.yundata.repository.mapper.BaseMapper"/>
         </javaClientGenerator>
-        <table tableName="t_clinic_audit" domainObjectName="ClinicAudit" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+        <table tableName="t_banks_category" domainObjectName="BanksCategory" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
             <generatedKey column="ID" sqlStatement="MySql" identity="true"/>
         </table>
 

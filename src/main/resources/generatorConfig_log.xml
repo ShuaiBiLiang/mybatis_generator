@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 <generatorConfiguration>
 	<!-- 引入配置文件 -->
-    <properties resource="mybatisGeneratorinit.properties"/>
+    <properties resource="mybatisGeneratorinit_log.properties"/>
 
 	<!-- 指定数据连接驱动jar地址 -->
     <classPathEntry  location="d:\liliang\repository\mysql\mysql-connector-java\5.1.45\mysql-connector-java-5.1.45.jar"/>
@@ -18,20 +18,20 @@
         <!-- 自定义方法 -->
         <plugin type="org.mybatis.generator.plugins.MapperPlugin">
             <property name="targetProject" value="${project_path}/src/main/java"/>
-            <property name="targetPackage" value="com.his.clinic.repository.mapper"/>
-            <property name="daoSuperClass" value="com.his.clinic.repository.mapper.BaseMapper"/>
-            <property name="createJavaMapper" value="false"/>
+            <property name="targetPackage" value="com.his.report.repository.mapper"/>
+            <property name="daoSuperClass" value="com.his.report.repository.mapper.BaseMapper"/>
+            <!--<property name="createJavaMapper" value="false"/>-->
         </plugin>
 
         <!-- 自定义方法 dao,service,controller-->
-        <plugin type="org.mybatis.generator.plugins.DaoServiceControllerPlugin">
+        <!--<plugin type="org.mybatis.generator.plugins.DaoServiceControllerPlugin">-->
             <!--<property name="targetProject" value="${project_path}/src/main/java"/>-->
-            <!--<property name="daoTargetPackage" value="com.his.clinic.repository.dao"/>-->
-            <!--<property name="serviceTargetPackage" value="com.his.clinic.service"/>-->
-            <!--<property name="controllerTargetPackage" value="com.his.clinic.controller"/>-->
-            <!--<property name="acceptTargetPackage" value="com.his.clinic.pojo.param"/>-->
-            <!--<property name="voTargetPackage" value="com.his.clinic.pojo.vo"/>-->
-        </plugin>
+            <!--<property name="daoTargetPackage" value="com.his.report.repository.dao"/>-->
+            <!--<property name="serviceTargetPackage" value="com.his.report.service"/>-->
+            <!--<property name="controllerTargetPackage" value="com.his.report.controller"/>-->
+            <!--<property name="acceptTargetPackage" value="com.his.report.pojo.param"/>-->
+            <!--<property name="voTargetPackage" value="com.his.report.pojo.vo"/>-->
+        <!--</plugin>-->
 
         <commentGenerator>
 		    <!-- 设置编码为UTF-8 -->
@@ -40,13 +40,13 @@
 		    <property name="suppressAllComments" value="false"/>
 		</commentGenerator>
         <!--数据库链接URL，用户名、密码 -->
-        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://192.168.10.14/his_clinic" userId="retow" password="Retow0594@">
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://192.168.10.14/his_log" userId="retow" password="Retow0594@">
         </jdbcConnection>
         <javaTypeResolver>
             <property name="forceBigDecimals" value="false"/>
         </javaTypeResolver>
         <!-- 生成模型的包名和位置-->
-        <javaModelGenerator targetPackage="com.his.clinic.repository.model" targetProject="${project_path}/src/main/java">
+        <javaModelGenerator targetPackage="com.his.report.repository.model" targetProject="${project_path}/src/main/java">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
             <!--<property name="rootClass" value="com.fendo.bean.BaseModel"/>-->
@@ -56,9 +56,9 @@
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
         <!-- 生成DAO的包名和位置-->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.his.clinic.repository.mapper" targetProject="${project_path}/src/main/java">
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.his.report.repository.mapper" targetProject="${project_path}/src/main/java">
             <property name="enableSubPackages" value="true"/>
-            <property name="rootInterface" value="com.his.clinic.repository.mapper.BaseMapper"/>
+            <property name="rootInterface" value="com.his.report.repository.mapper.BaseMapper"/>
         </javaClientGenerator>
         <!-- 要生成的表 tableName是数据库中的表名或视图名 domainObjectName是实体类名-->
         <!--<table tableName="Healthyorder" domainObjectName="Healthyorder" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
@@ -67,8 +67,8 @@
         <!--<table tableName="t_register" domainObjectName="Register" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
         <!--<table tableName="t_receipt" domainObjectName="Receipt" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
         <!--<table tableName="t_patient" domainObjectName="Patient" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
-        <!--<table tableName="t_clinic_order" domainObjectName="ClinicOrder" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
-        <!--<table tableName="t_user_clinic_info" domainObjectName="UserClinicInfo" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+        <!--<table tableName="t_report_order" domainObjectName="reportOrder" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+        <!--<table tableName="t_user_report_info" domainObjectName="UserreportInfo" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
         <!--<table tableName="t_stock_drug_instock_detail" domainObjectName="DrugInStockDetail" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
         <!--<table tableName="t_stock_drug_stock" domainObjectName="DrugStock" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
         <!--<table tableName="t_stock_drug_instock" domainObjectName="DrugInStock" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
@@ -89,12 +89,9 @@
         <!--<table tableName="t_recipe_form_count" domainObjectName="RecipeFormCount" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
         <!--<table tableName="t_recipe_medical_template" domainObjectName="RecipeMedicalTemplate" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
         <!--<table tableName="t_order_pay_audit" domainObjectName="OrderPayAudit" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"><generatedKey column="ID" sqlStatement="MySql" identity="true"/></table>-->
-        <!--<table tableName="t_juhe_info" domainObjectName="JuheInfo" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"><generatedKey column="ID" sqlStatement="MySql" identity="true"/></table>-->
-        <!--<table tableName="t_clinic_delay" domainObjectName="ClinicDelay" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"><generatedKey column="ID" sqlStatement="MySql" identity="true"/></table>-->
-        <!--<table tableName="t_wxmp_config" domainObjectName="WxmpConfig" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"><generatedKey column="ID" sqlStatement="MySql" identity="true"/></table>-->
-        <!--<table tableName="t_wxmp_doctors" domainObjectName="WxmpDoctors" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"><generatedKey column="ID" sqlStatement="MySql" identity="true"/></table>-->
-        <!--<table tableName="t_wxmp_user" domainObjectName="WxmpUser" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"><generatedKey column="ID" sqlStatement="MySql" identity="true"/></table>-->
-        <table tableName="t_wxmp_user_contact" domainObjectName="WxmpUserContact" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"><generatedKey column="ID" sqlStatement="MySql" identity="true"/></table>
+        <!--<table tableName="t_common_words" domainObjectName="CommonWords" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"><generatedKey column="ID" sqlStatement="MySql" identity="true"/></table>-->
+        <!--<table tableName="t_diagnose" domainObjectName="DiagnoseData" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"><generatedKey column="ID" sqlStatement="MySql" identity="true"/></table>-->
+        <table tableName="t_report_collect_fee" domainObjectName="ReportCollectFee" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"><generatedKey column="ID" sqlStatement="MySql" identity="true"/></table>
 
     </context>
 </generatorConfiguration>
