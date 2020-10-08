@@ -39,11 +39,11 @@
 	<dependency>
 		<groupId>mysql</groupId>
 		<artifactId>mysql-connector-java</artifactId>
-		<version>5.1.38</version>
+		<version>5.1.45</version>
 	</dependency>
 	<dependency>
-		   <groupId>com.google.code.gson</groupId> 
-		   <artifactId>gson</artifactId>  
+		   <groupId>com.google.code.gson</groupId>
+		   <artifactId>gson</artifactId>
 		   <version>2.3.1</version>
 	</dependency>
 	<dependency>
@@ -67,31 +67,31 @@
           <version>1.7</version>
       </dependency>
   </dependencies>
-  
+
     <build>
     <finalName>mybatis-generator-oracle</finalName>
-    <resources>  
-        <resource>  
-            <directory>src/main/resources</directory>  
-            <includes>  
-                <include>**/*.properties</include>  
-                <include>**/*.xml</include>  
-                <include>**/*.tld</include> 
-                <include>**/*.dtd</include>  
-            </includes>  
-            <filtering>false</filtering>  
-        </resource>  
-        <resource>  
-            <directory>src/main/java</directory>  
-            <includes>  
-                <include>**/*.properties</include>  
-                <include>**/*.xml</include>  
-                <include>**/*.tld</include>  
-                <include>**/*.dtd</include>  
-            </includes>  
-            <filtering>false</filtering>  
-        </resource>  
-    </resources>  
+    <resources>
+        <resource>
+            <directory>src/main/resources</directory>
+            <includes>
+                <include>**/*.properties</include>
+                <include>**/*.xml</include>
+                <include>**/*.tld</include>
+                <include>**/*.dtd</include>
+            </includes>
+            <filtering>false</filtering>
+        </resource>
+        <resource>
+            <directory>src/main/java</directory>
+            <includes>
+                <include>**/*.properties</include>
+                <include>**/*.xml</include>
+                <include>**/*.tld</include>
+                <include>**/*.dtd</include>
+            </includes>
+            <filtering>false</filtering>
+        </resource>
+    </resources>
     <plugins>
       	<plugin>
 	    	<groupId>org.apache.maven.plugins</groupId>
@@ -102,7 +102,7 @@
 	    	  <target>1.8</target>
 	    	</configuration>
 	    </plugin>
-	    
+
 	    <plugin>
               <!-- 因为项目中使用了依赖包,所以要使用maven-assembly-plugin来构建,会把依赖包同时打进jar包中 -->
               <artifactId>maven-assembly-plugin</artifactId>

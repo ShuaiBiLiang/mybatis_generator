@@ -13,21 +13,21 @@ import org.mybatis.generator.exception.InvalidConfigurationException;
 import org.mybatis.generator.exception.XMLParserException;
 import org.mybatis.generator.internal.DefaultShellCallback;
 
-/**   
- * @Title: Start.java 
- * @Package com.fendo.test 
+/**
+ * @Title: Start.java
+ * @Package com.fendo.test
  * @Description: TODO
  * @author fendo
- * @date 2017年10月16日 下午6:08:44 
- * @version V1.0   
+ * @date 2017年10月16日 下午6:08:44
+ * @version V1.0
 */
 public class Start {
-	
+
 	public static void main(String[] args) throws Exception{
 		List<String> warnings = new ArrayList<String>();
 		boolean overwrite = true;
-		File configFile = new File("D:\\Source_Work\\mybatis-generator-oracle\\src\\main\\resources\\generatorConfig.xml");
-		
+		File configFile = new File("D:\\LiLiang\\yzs_mybatis_generator\\src\\main\\resources\\generatorConfig_yzs.xml");
+
 		ConfigurationParser cp = new ConfigurationParser(warnings);
 		Configuration config = cp.parseConfiguration(configFile);
 		DefaultShellCallback callback = new DefaultShellCallback(overwrite);
